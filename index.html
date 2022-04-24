@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style type="text/css">
+        body {
+    background: blanchedalmond;
+}
+
+h2 {
+    text-align: center;
+}
+
+form {
+    text-align: center;
+}
+
+#buttonTxt {
+    text-align: center;
+    /* position: fixed; */
+    /* left: 50%; */
+    /* bottom: 10px; */
+    /* transform: translate(-50%, -50%); */
+    margin: 0 auto;
+}
+
+#county {
+    text-align: center;
+    width: 30%;
+    padding: 3px;
+}
+
+#simpleVoteBtn {
+    align-items: center;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.85);
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    margin: 0;
+    min-height: 3rem;
+    padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
+}
+
+#simpleVoteBtn:hover,
+#simpleVoteBtn:focus {
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+#simpleVoteBtn:hover {
+    transform: translateY(-1px);
+}
+
+#simpleVoteBtn:active {
+    background-color: #F0F0F1;
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+    color: rgba(0, 0, 0, 0.65);
+    transform: translateY(0);
+}
+
+#submit:hover,
+#submit:focus {
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+#submit:active {
+    background-color: #F0F0F1;
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+    color: rgba(0, 0, 0, 0.65);
+    /* transform: translateY(0); */
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: rgb(217 221 175);
+    border: 1px solid rgb(94, 94, 94);
+    border-radius: 5px;
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    margin: 4px 2px;
+    transition: all 250ms;
+    cursor: pointer;
+    max-width: 30%;
+}
+
+input[type=text], select, textarea, input[type=email] {
+    max-width: 300px;
+    width: 30%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+select {
+    font-family: 'Courier New';
+    font-weight: bold;
+    width: 100%;
+    height: 30%;
+    padding: 16px 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#submit {
+    position: relative;
+    /* left: 50%; */
+    /* bottom: -23px; */
+    /* transform: translate(-50%, -50%); */
+    margin: 0 auto;
+}
+
+.ProgrammingQ {
+    padding: 5px;
+    text-align: left;
+    margin: auto;
+    width: 27%;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+fieldset{
+    border-radius: 10px;
+}
+
+textarea {
+    width: auto;
+ }</style>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+    <h2>Voting Project</h2>
+
+
+    <form method="post" enctype="multipart/form-data">
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname" placeholder="First name" value="" required size="30">
+        <span id="fNameSpan"></span>
+        <br>
+
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname" placeholder="Last name" value="" required size="30"><br>
+        <span id="lNameSpan"></span>
+
+        <label for="emailAddress">Your e-mail address</label><br>
+        <input id="emailAddress" type="email" name = "email" size="30" maxLength="64" required placeholder="username@example.com"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Please provide a real e-mail address"><br>
+        <span id="emailSpan"></span>
+
+        <br>
+        <label for="county">Choose a County:</label><br>
+        <select name="county" id="county" required>
+            <option value="" selected disabled hidden>Please select a county</option>
+            <option value="Alba">Alba</option>
+            <option value="Arges">Arges</option>
+            <option value="Dolj">Dolj</option>
+            <option value="Hunedoara">Hunedoara</option>
+            <option value="Iasi">Iasi</option>
+            <option value="Ilfov">Ilfov</option>
+            <option value="Maramures">Maramures</option>
+            <option value="Mures">Mures</option>
+            <option value="Timis">Timis</option>
+            <option value="Tulcea">Tulcea</option>
+            <option value="Vaslui">Vaslui</option>
+            <option value="Valcea">Valcea</option>
+            <option value="Vrancea">Vrancea</option>
+
+        </select>
+        <br>
+
+        <br>
+        <input type="radio" id="male" name="identity" value="Male" required>
+        <label for="html">Male</label>
+        <input type="radio" id="female" name="identity" value="Female">
+        <label for="css">Female</label>
+        <span id="radioCheckSpan"></span>
+        <br>
+        <label for="votee">Szavazas:</label><br>
+        <select name="votee" id="votee" required>
+            <option value="" selected disabled hidden>Please select opinion</option>
+            <option value="Fidesz">Fidesz</option>
+            <option value="Megoldas_Mozgalom">Megoldas Mozgalom</option>
+            <option value="Egyutt">Egyutt</option>
+            <option value="LMP">LMP</option>
+            <option value="DK">DK</option>
+            <option value="Jobbik">Jobbik</option>
+            <option value="MSZP">MSZP</option>
+        </select>
+        <br><br>
+
+
+        <!-- <button id="simpleVoteBtn" type="button" onclick="firstVote()">Programming</button>
+        <button id="simpleVoteBtn" type="button" onclick="secondVote()">Food</button>
+        <button id="simpleVoteBtn" type="button" onclick="thirdVote()">Hobbies</button>
+
+        <div id="firstVote">
+            <br>
+            <div class="ProgrammingQ">
+                <fieldset id="group1">
+                    <label><b>1. Choose your favourite Programming language: </b></label><Br>
+                    <input id="prg1" type="radio" name="group1" />
+                    <label for="prg1">C++</label><br>
+
+
+                    <input id="prg2" type="radio" name="group1" />
+                    <label for="prg2">Python</label><br>
+
+
+                    <input id="prg3" type="radio" name="group1" />
+                    <label for="prg3">Javascript</label><br>
+
+                    <input id="prg4" type="radio" name="group1" />
+                    <label for="prg4">Java</label><br>
+
+                    <input id="prg5" type="radio" name="group1" />
+                    <label for="prg5">Kotlin</label><br>
+                </fieldset>
+            </div>
+
+            <br>
+
+            <div class="ProgrammingQ">
+                <fieldset id="group2">
+                    <label><b>2. Choose your favourite OS:</b></label><Br>
+                    <input id="os1" type="radio" name="group2" />
+                    <label for="os1">Windows</label><br>
+
+
+                    <input id="os2" type="radio" name="group2" />
+                    <label for="os2">Mac</label><br>
+
+
+                    <input id="os3" type="radio" name="group2" />
+                    <label for="os3">Linux</label><br>
+                </fieldset>
+            </div>
+
+            <br>
+
+            <div class="ProgrammingQ">
+
+                <fieldset id="group3">
+                    <label><b>3. What devices do you use the most?</b></label><Br>
+                    <input id="device1" type="radio" name="group3" class="checkbox3" />
+                    <label for="device1">Phone</label><br>
+
+
+                    <input id="device2" type="radio" name="group3" class="checkbox3" />
+                    <label for="device2">Laptop</label><br>
+
+
+                    <input id="device3" type="radio" name="group3" class="checkbox3" />
+                    <label for="device3">PC</label><br>
+
+                    <input id="device4" type="radio" name="group3" class="checkbox3" />
+                    <label for="device4">Tablet</label><br>
+
+                    <input id="device5" type="radio" name="group3" class="checkbox3" />
+                    <label for="device5">TV</label><br>
+                </fieldset>
+            </div>
+        </div>
+
+
+        <div id="secondVote">
+            <br>
+
+            <div class="ProgrammingQ">
+                <fieldset id="group4">
+                    <label><b>1. What kind of food do you like the most? </b></label><Br>
+                    <input id="food1" type="radio" name="group4" />
+                    <label for="food1">Vegetables</label><br>
+
+
+                    <input id="food2" type="radio" name="group4" />
+                    <label for="food2">Fruits</label><br>
+
+
+                    <input id="food3" type="radio" name="group4" />
+                    <label for="food3">Grains, Beans and nuts</label><br>
+
+                    <input id="food4" type="radio" name="group4" />
+                    <label for="food4">Fish and Seafood</label><br>
+
+                    <input id="food5" type="radio" name="group4" />
+                    <label for="food5">Dairy foods</label><br>
+                </fieldset>
+            </div>
+
+            <br>
+
+            <div class="ProgrammingQ">
+                <fieldset id="group5">
+                    <label><b>2. How often do you go to restaurants?</b></label><Br>
+                    <input id="restaurants1" type="radio" name="group5" />
+                    <label for="restaurants1">1/week</label><br>
+
+
+                    <input id="restaurants2" type="radio" name="group5" />
+                    <label for="restaurants2">2/week</label><br>
+
+
+                    <input id="restaurants3" type="radio" name="group5" />
+                    <label for="restaurants3">3-4/week</label><br>
+
+                    <input id="restaurants4" type="radio" name="group5" />
+                    <label for="restaurants4">5-6/week</label><br>
+
+                    <input id="restaurants5" type="radio" name="group5" />
+                    <label for="restaurants5">Everyday</label><br>
+                </fieldset>
+            </div>
+
+            <br>
+
+            <div class="ProgrammingQ">
+                <fieldset id="group6">
+                    <label><b>3. Do you consume fast food?</b></label><Br>
+                    <input id="ffood1" type="radio" name="group6" />
+                    <label for="ffood1">Yes</label><br>
+
+
+                    <input id="ffood2" type="radio" name="group6" />
+                    <label for="ffood2">No</label><br>
+
+                </fieldset>
+            </div>
+
+            <br>
+
+            <div class="ProgrammingQ">
+                <fieldset id="group7">
+                    <label><b>4. Do you have a fixed meal time that you follow?</b></label><Br>
+                    <input id="fixedmeal1" type="radio" name="group7" />
+                    <label for="fixedmeal1">Yes</label><br>
+
+
+                    <input id="fastfood2" type="radio" name="group7" />
+                    <label for="fastfood2">No</label><br>
+
+                </fieldset>
+            </div>
+
+            <br>
+
+            <div class="ProgrammingQ">
+                <fieldset id="group8">
+                    <label><b>5. On an average how much money do you spend on buying fast food per week?</b></label><br>
+                    <input id="buyingfastfood1" type="radio" name="group8" />
+                    <label for="buyingfastfood1">$25</label><br>
+
+
+                    <input id="buyingfastfood2" type="radio" name="group8" />
+                    <label for="buyingfastfood2">$50</label><br>
+
+                    <input id="buyingfastfood3" type="radio" name="group8" />
+                    <label for="buyingfastfood3">$100</label><br>
+
+                    <input id="buyingfastfood4" type="radio" name="group8" />
+                    <label for="buyingfastfood4">More than $100</label><br>
+
+                </fieldset>
+            </div>
+
+
+
+        </div>
+
+        <div id="thirdVote">
+            <br>
+            <div class="ProgrammingQ">
+                <fieldset id="group9">
+                    <label><b>1. Do you have any hobbies? </b></label><Br>
+                    <input id="hobbies1" type="radio" name="group9" />
+                    <label for="hobbies1">Reading</label><br>
+
+
+                    <input id="hobbies2" type="radio" name="group9" />
+                    <label for="hobbies2">Arts/Crafts</label><br>
+
+
+                    <input id="hobbies3" type="radio" name="group9" />
+                    <label for="hobbies3">Games</label><br>
+
+                    <input id="hobbies4" type="radio" name="group9" />
+                    <label for="hobbies4">Photography</label><br>
+
+                    <input id="hobbies5" type="radio" name="group9" />
+                    <label for="hobbies5">Cooking</label><br>
+
+                    <input id="hobbies6" type="radio" name="group9" />
+                    <label for="hobbies6">Fishing</label><br>
+
+                    <input id="hobbies7" type="radio" name="group9" />
+                    <label for="hobbies7">Music</label><br>
+
+                    <input id="hobbies8" type="radio" name="group9" />
+                    <label for="hobbies8">Gardening</label><br>
+
+                    <input id="hobbies9" type="radio" name="group9" />
+                    <label for="hobbies9">Watching TV/Movies</label><br>
+
+                </fieldset>
+            </div>
+
+            <br>
+            <div class="ProgrammingQ">
+                <fieldset id="group10">
+                    <label><b>2. What time of day would you be most available? </b></label><Br>
+
+                    <input id="day1" type="radio" name="group10" />
+                    <label for="day1">Mornings</label><br>
+
+                    <input id="day2" type="radio" name="group10" />
+                    <label for="day2">Afternoons</label><br>
+
+
+                    <input id="day3" type="radio" name="group10" />
+                    <label for="day3">Evenings</label><br>
+
+                    <input id="day4" type="radio" name="group10" />
+                    <label for="day4">All of the above</label><br>
+
+                </fieldset>
+            </div>
+
+            <br>
+            <div class="ProgrammingQ">
+                <fieldset id="group11TextArea">
+                    <label><b>3. What is your favourite thing to do? </b></label><Br>
+                    <textarea id="textArea" name="group11TextArea" rows="7" cols="50"></textarea>
+                </fieldset>
+            </div>
+
+            <br>
+
+            <div class="ProgrammingQ">
+                <fieldset id="group12">
+                    <label><b>4. How many hours (per week) do you spend on your hobbies?
+                        </b></label><Br>
+                    <input id="favoritHobby1" type="radio" name="group12" />
+                    <label for="favoritHobby1">0 to 3</label><br>
+
+                    <input id="favoritHobby2" type="radio" name="group12" />
+                    <label for="favoritHobby2">4 to 6</label><br>
+
+                    <input id="favoritHobby3" type="radio" name="group12" />
+                    <label for="favoritHobby3">7 to 10</label><br>
+
+                    <input id="favoritHobby4" type="radio" name="group12" />
+                    <label for="favoritHobby4">11 to 15</label><br>
+
+                    <input id="favoritHobby5" type="radio" name="group12" />
+                    <label for="favoritHobby5">more than 15</label><br>
+
+                </fieldset>
+            </div>
+
+        </div> -->
+
+
+
+        <br>
+        <input type="submit" value="Submit" id="submit">
+        <br>
+
+
+    </form>
+    <p></p>
+    <p id="buttonTxt">If you click the "Submit" button, the form-data will be sent to the server and it will be
+        processed".</p>
+
+    <script>
+        function defaultSet() {
+    var first = document.getElementById("firstVote");
+    var second = document.getElementById("secondVote");
+    var third = document.getElementById("thirdVote");
+    var group1 = document.getElementById("prg1");
+    var group2 = document.getElementById("os1");
+    var group3 = document.getElementById("device1");
+
+
+
+    group1.setAttribute('required', '');
+    group2.setAttribute('required', '');
+    group3.setAttribute('required', '');
+
+    // checkCheckBoxes('#group3');
+
+    first.style.display = "block";
+    second.style.display = "none";
+    third.style.display = "none";
+
+    const loginForm = document.getElementById("form2");
+    loginForm.addEventListener("submit", handleSubmit);
+}
+
+
+window.onload = defaultSet;
+
+function checkCheckBoxes(x) {
+    const form = document.querySelector(x);
+    const checkboxes = form.querySelectorAll('input[type=checkbox]');
+    const checkboxLength = checkboxes.length;
+    const firstCheckbox = checkboxLength > 0 ? checkboxes[0] : null;
+
+    function init() {
+        if (firstCheckbox) {
+            for (let i = 0; i < checkboxLength; i++) {
+                checkboxes[i].addEventListener('change', checkValidity);
+            }
+
+            checkValidity();
+        }
+    }
+
+    function isChecked() {
+        for (let i = 0; i < checkboxLength; i++) {
+            if (checkboxes[i].checked) return true;
+        }
+
+        return false;
+    }
+
+    function checkValidity() {
+        const errorMessage = !isChecked() ? 'Kérjük válasszon ki legalább egyet.' : '';
+        firstCheckbox.setCustomValidity(errorMessage);
+    }
+
+    init();
+};
+
+function firstVote() {
+    var first = document.getElementById("firstVote");
+    var second = document.getElementById("secondVote");
+    var third = document.getElementById("thirdVote");
+    var group1 = document.getElementById("prg1");
+    var group2 = document.getElementById("os1");
+    var group3 = document.getElementById("device1");
+
+    var checkboxes = Array.from(document.getElementsByClassName("checkbox3"));
+
+    // console.log(checkboxes);
+
+
+    // for (var i = 0; i < checkboxes.length; ++i) {
+    //     if (checkboxes[i].checked == true) {
+    //         group3.removeAttribute('required','');
+    //     }
+    //     else{
+    //         group3.setAttribute('required', '');
+    //     }
+    // }
+
+    // console.log(group3);
+
+
+    // group3.setAttribute('required', '');
+
+    if (first.style.display == "none") {
+
+        group1.setAttribute('required', '');
+        group2.setAttribute('required', '');
+        group3.setAttribute('required', '');
+
+        first.style.display = "block";
+        second.style.display = "none";
+        third.style.display = "none";
+    }
+}
+
+function secondVote() {
+    var first = document.getElementById("firstVote");
+    var second = document.getElementById("secondVote");
+    var third = document.getElementById("thirdVote");
+
+    var group1 = document.getElementById("prg1");
+    var group2 = document.getElementById("os1");
+    var group3 = document.getElementById("device1");
+
+    var group4 = document.getElementById("food1");
+    var group5 = document.getElementById("restaurants1");
+    var group6 = document.getElementById("ffood1");
+    var group7 = document.getElementById("fixedmeal1");
+    var group8 = document.getElementById("buyingfastfood1");
+
+
+    if (second.style.display == "none") {
+
+        group1.removeAttribute('required', '');
+        group2.removeAttribute('required', '');
+        group3.removeAttribute('required', '');
+
+        group4.setAttribute('required', '');
+        group5.setAttribute('required', '');
+        group6.setAttribute('required', '');
+        group7.setAttribute('required', '');
+        group8.setAttribute('required', '');
+
+
+
+        second.style.display = "block";
+        first.style.display = "none";
+        third.style.display = "none";
+    }
+
+
+}
+
+function thirdVote() {
+    var first = document.getElementById("firstVote");
+    var second = document.getElementById("secondVote");
+    var third = document.getElementById("thirdVote");
+
+    var group1 = document.getElementById("prg1");
+    var group2 = document.getElementById("os1");
+    var group3 = document.getElementById("device1");
+
+    var group4 = document.getElementById("food1");
+    var group5 = document.getElementById("restaurants1");
+    var group6 = document.getElementById("ffood1");
+    var group7 = document.getElementById("fixedmeal1");
+    var group8 = document.getElementById("buyingfastfood1");
+
+    var group9 = document.getElementById("hobbies1");
+    var group10 = document.getElementById("day1");
+    var group11 = document.getElementById("textArea");
+    var group12 = document.getElementById("favoritHobby1");
+
+    if (third.style.display == "none") {
+
+        group1.removeAttribute('required', '');
+        group2.removeAttribute('required', '');
+        group3.removeAttribute('required', '');
+
+        group4.removeAttribute('required', '');
+        group5.removeAttribute('required', '');
+        group6.removeAttribute('required', '');
+        group7.removeAttribute('required', '');
+        group8.removeAttribute('required', '');
+
+        group9.setAttribute('required', '');
+        group10.setAttribute('required', '');
+        group11.setAttribute('required', '');
+        group12.setAttribute('required', '');
+
+
+        third.style.display = "block";
+        first.style.display = "none";
+        second.style.display = "none";
+    }
+
+
+}
+
+
+function handleSubmit(e) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const formProps = Object.fromEntries(formData);
+    console.log(formProps);
+    console.log(formData);
+}
+
+// window.onload = defaultSet;
+
+
+    </script>
+
+</body>
+
+</html>
